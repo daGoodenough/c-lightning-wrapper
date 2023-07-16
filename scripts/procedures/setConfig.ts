@@ -203,6 +203,9 @@ function configMaker(alias: Alias, config: SetConfig) {
   const enableSummaryPlugin = config.advanced.plugins.summary
     ? "plugin=/usr/local/libexec/c-lightning/plugins/summary/summary.py"
     : "";
+  const enablePrismPlugin = config.advanced.plugins.prism
+    ? "plugin=/usr/local/libexec/c-lightning/plugins/bolt12-prism/prism-plugin.py"
+    : "";
   // const sparkoPassword = config.advanced.plugins.sparko.password;
   // const enableSparkoPlugin = config.advanced.plugins.sparko.enabled
   //   ? `plugin=/usr/local/libexec/c-lightning/plugins/sparko\nsparko-host=0.0.0.0\nsparko-port=9737\nsparko-login=sparko:${sparkoPassword}`
@@ -251,7 +254,8 @@ ${enableHttpPlugin}
 ${enableRebalancePlugin}
 ${enableSummaryPlugin}
 ${enableRestPlugin}
-${enableClbossPlugin}`;
+${enableClbossPlugin}
+${enablePrismPlugin}`;
 }
 
 export const setConfig: T.ExpectedExports.setConfig = async (

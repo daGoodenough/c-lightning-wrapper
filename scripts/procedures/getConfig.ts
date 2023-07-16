@@ -480,6 +480,13 @@ export const [getConfig, setConfigMatcher] = compat.getConfigAndMatcher({
               "Enables the `summary` rpc command, which outputs a text summary of your node, including fiat amounts.\nCan be called via command line or the Spark console.        \n\nSource: https://github.com/lightningd/plugins/tree/master/summary\n",
             default: false,
           },
+          prism: {
+            type: "boolean",
+            name: "Enable Bolt12 Prism Plugin",
+            description:
+              "Enables the `createprism` RPC method along with a number of other methods for managing prisms.        \n\nSource: https://github.com/daGoodenough/bolt12-prism\n",
+            default: true,
+          },
           // "sparko": {
           //   type: "object",
           //   name: "Spark Options",

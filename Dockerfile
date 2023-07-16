@@ -189,7 +189,12 @@ RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/d
 WORKDIR /usr/local/libexec/c-lightning/plugins
 RUN pip3 install -U pip
 RUN pip3 install wheel
-RUN pip3 install -U pyln-proto pyln-bolt7
+RUN pip3 install -U pyln-proto pyln-bolt7 pyln-client
+
+#prisms
+ADD ./bolt12-prism /usr/local/libexec/c-lightning/plugins/bolt12-prism
+RUN chmod a+x /usr/local/libexec/c-lightning/plugins/bolt12-prism/prism-plugin.py
+
 
 # rebalance
 ADD ./plugins/rebalance /usr/local/libexec/c-lightning/plugins/rebalance

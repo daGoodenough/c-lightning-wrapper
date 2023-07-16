@@ -16,3 +16,6 @@
 [submodule "ui"]
 	path = ui
 	url = https://github.com/ElementsProject/cln-application.git
+[submodule "bolt12-prism"]
+	path = bolt12-prism
+	url = https://github.com/daGoodenough/bolt12-prism.git
