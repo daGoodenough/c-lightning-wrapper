@@ -451,6 +451,12 @@ export const [getConfig, setConfigMatcher] = compat.getConfigAndMatcher({
             description: "Allow channel shutdown with alternate txids\n",
             default: false,
           },
+          "experimental-offers": {
+            type: "boolean",
+            name: "Bolt12 Offers",
+            description: "Allow for use of Bolt12 offers\n",
+            default: false,
+          }
         },
       },
       plugins: {

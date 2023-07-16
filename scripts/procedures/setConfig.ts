@@ -194,6 +194,9 @@ function configMaker(alias: Alias, config: SetConfig) {
   ]
     ? "experimental-shutdown-wrong-funding"
     : "";
+  const enableExperimentalOffers = config.advanced.experimental["experimental-offers"]
+    ? "experimental-offers"
+    : "";
   const enableHttpPlugin = config.advanced.plugins.http
     ? "plugin=/usr/local/libexec/c-lightning/plugins/c-lightning-http-plugin"
     : "";
@@ -249,6 +252,7 @@ ${enableExperimentalDualFund}
 experimental-onion-messages
 experimental-offers
 ${enableExperimentalShutdownWrongFunding}
+${enableExperimentalOffers}
 experimental-websocket-port=4269
 ${enableHttpPlugin}
 ${enableRebalancePlugin}
