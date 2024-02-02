@@ -96,12 +96,12 @@ RUN apt-get update -qq && \
         wget
 
 # CLN
-RUN wget -q https://zlib.net/zlib-1.2.13.tar.gz \
-&& tar xvf zlib-1.2.13.tar.gz \
-&& cd zlib-1.2.13 \
+RUN wget -q https://github.com/madler/zlib/archive/refs/tags/v1.3.1.tar.gz \
+&& tar xvf v1.3.1.tar.gz \
+&& cd v1.3.1 \
 && ./configure \
 && make \
-&& make install && cd .. && rm zlib-1.2.13.tar.gz && rm -rf zlib-1.2.13
+&& make install && cd .. && rm v1.3.1.tar.gz && rm -rf v1.3.1
 
 RUN apt-get install -y --no-install-recommends unzip tclsh \
 && wget -q https://www.sqlite.org/2023/sqlite-src-3420000.zip \
@@ -189,7 +189,12 @@ RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/d
 WORKDIR /usr/local/libexec/c-lightning/plugins
 RUN pip3 install -U pip
 RUN pip3 install wheel
-RUN pip3 install -U pyln-proto pyln-bolt7
+RUN pip3 install -U pyln-proto pyln-bolt7 pyln-client
+
+#prisms
+ADD ./bolt12-prism /usr/local/libexec/c-lightning/plugins/bolt12-prism
+RUN chmod a+x /usr/local/libexec/c-lightning/plugins/bolt12-prism/prism-plugin.py
+
 
 # rebalance
 ADD ./plugins/rebalance /usr/local/libexec/c-lightning/plugins/rebalance
