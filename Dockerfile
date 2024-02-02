@@ -218,6 +218,11 @@ COPY --from=builder /root/.cargo/bin/teosd /usr/local/bin/teosd
 COPY --from=builder /root/.cargo/bin/teos-cli /usr/local/bin/teos-cli
 COPY --from=builder /root/.cargo/bin/watchtower-client /usr/local/libexec/c-lightning/plugins/watchtower-client
 
+# nwc
+ADD ./cln_nwc /usr/local/libexec/c-lightning/plugins/cln_nwc
+RUN pip3 install -r /usr/local/libexec/c-lightning/plugins/cln_nwc/requirements.txt
+RUN chmod a+x /usr/local/libexec/c-lightning/plugins/cln_nwc/nwc.py
+
 # other scripts
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh

@@ -302,6 +302,8 @@ function configMaker(alias: Alias, config: SetConfig) {
   const enableWatchtowerClientPlugin = config.watchtowers["wt-client"]
     ? "plugin=/usr/local/libexec/c-lightning/plugins/watchtower-client"
     : "";
+  const enableNWCPlugin = 
+    config.advanced.plugins.nwc.enabled ? "plugin=/usr/local/libexec/c-lightning/plugins/cln_nwc/nwc.py" : "";
 
   return `
 network=bitcoin
@@ -337,6 +339,7 @@ ${enableSummaryPlugin}
 ${enableRestPlugin}
 ${enableCLNRestPlugin}
 ${enableClbossPlugin}
+${enableNWCPlugin}
 ${enableWatchtowerClientPlugin}
 
 autoclean-cycle=${config.autoclean["autoclean-cycle"]}

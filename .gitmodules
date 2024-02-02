@@ -16,3 +16,6 @@
 [submodule "ui"]
 	path = ui
 	url = https://github.com/ElementsProject/cln-application.git
+[submodule "cln_nwc"]
+	path = cln_nwc
+	url = https://github.com/gudnuf/cln_nwc.git

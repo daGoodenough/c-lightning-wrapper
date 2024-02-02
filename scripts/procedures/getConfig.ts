@@ -696,6 +696,12 @@ export const [getConfig, setConfigMatcher] = compat.getConfigAndMatcher({
               },
             },
           },
+          nwc: {
+            type: "boolean",
+            name: "Enable NWC Plugin",
+            description:
+              "Enables the Nostr Wallet Connect plugin\n\nSource:https://github.com/gudnuf/cln_nwc.git",
+          },
         },
       },
     },
